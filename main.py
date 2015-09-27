@@ -1,4 +1,6 @@
-from arrows import Arrow
+from game import Game
 
-key = Arrow.input()
-print(key)
+if __name__ == "__main__":
+
+    game = Game()
+    game.play()
