@@ -24,15 +24,20 @@ class Game:
 
     def generate_next(self, direction):
         for row in self.board:
-            for i in range(len(row)):
-                if i > 0 and row[i] != 0:
-                    best_spot = i
-                    print(best_spot)
-                    for j in range(i-1, -1, -1):
-                        if row[j] != 0:
-                            break
-                        else:
-                            best_spot = j
-                        print(best_spot)
-                    row[j] = row[i]
-                    row[i] = 0
+            self.__shift_elems_left(row)
+
+    def __shift_elems_left(self, row):
+        for i in range(len(row)):
+            if i > 0 and row[i] != 0:
+                best_spot = self.__find_best_pos(i, row)
+                row[best_spot] = row[i]
+                row[i] = 0
+
+    def __find_best_pos(self, i, row):
+        best_spot = i
+        for j in range(i-1, -1, -1):
+            if row[j] != 0:
+                break
+            else:
+                best_spot = j
+        return best_spot
