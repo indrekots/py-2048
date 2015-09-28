@@ -21,3 +21,18 @@ class Game:
     def __print_board(self):
         for i in range(len(self.board)):
             print(self.board[i])
+
+    def generate_next(self, direction):
+        for row in self.board:
+            for i in range(len(row)):
+                if i > 0 and row[i] != 0:
+                    best_spot = i
+                    print(best_spot)
+                    for j in range(i-1, -1, -1):
+                        if row[j] != 0:
+                            break
+                        else:
+                            best_spot = j
+                        print(best_spot)
+                    row[j] = row[i]
+                    row[i] = 0
