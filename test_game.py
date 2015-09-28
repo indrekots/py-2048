@@ -5,14 +5,14 @@ class TestGame(unittest.TestCase):
 
     def test_left_move(self):
         game = Game()
-        initial = [[0, 0, 0, 0],
+        initial = [[0, 2, 0, 4],
                    [0, 0, 2, 0],
-                   [0, 0, 0, 0],
-                   [0, 0, 0, 0]]
-        next_step = [[0, 0, 0, 0],
+                   [0, 0, 4, 4],
+                   [2, 0, 0, 8]]
+        next_step = [[2, 4, 0, 0],
                      [2, 0, 0, 0],
-                     [0, 0, 0, 0],
-                     [0, 0, 0, 0]]
+                     [4, 4, 0, 0],
+                     [2, 8, 0, 0]]
 
         game.board = initial
         game.generate_next("LEFT")
